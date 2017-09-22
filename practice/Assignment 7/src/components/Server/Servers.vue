@@ -22,17 +22,6 @@ export default {
                 { id: 4, status: 'Warning' }
             ]
         }
-    },
-    created() {
-        const self = this;
-        eventBus.onServerStatusChange(data => {
-            for (let server of this.servers) {
-                if (server.id === data.id) {
-                    server.status = data.status
-                    break;
-                }
-            }
-        })
     }
 }
 </script>

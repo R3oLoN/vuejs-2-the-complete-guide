@@ -16,7 +16,6 @@ export default {
     methods: {
         changeStatus(){
             this.server.status = 'Normal'
-            eventBus.serverStatusChange(this.server)
         }
     },
     created(){

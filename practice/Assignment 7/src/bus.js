@@ -7,12 +7,6 @@ export const eventBus = new Vue({
 		},
 		onServerDetailsChange(cb) {
 			this.$on('serverDetailsChange', cb)
-		},
-		serverStatusChange(server) {
-			this.$emit('serverStatusChange', server)
-		},
-		onServerStatusChange(cb) {
-			this.$on('serverStatusChange', cb)
 		}
 	}
 });
