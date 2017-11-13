@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <form v-if="!isSubmitted">
+						<app-full-name v-model="userData.fullName"></app-full-name>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <!-- Exercise 1 -->
@@ -9,14 +10,6 @@
                     <!-- Mail -->
                     <!-- Password -->
                     <!-- Store Data? Yes/No -->
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" class="form-control" v-model="userData.firstName">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" class="form-control" v-model="userData.lastName">
-                    </div>
 
                     <div class="form-group">
                         <label for="email">Mail</label>
@@ -74,12 +67,18 @@
 </template>
 
 <script>
+import AppFullName from './components/FullName.vue'
 export default {
+	components: {
+		AppFullName
+	},
 	data() {
 		return {
 			userData: {
-				firstName: '',
-				lastName: '',
+				fullName : { 
+					firstName: '',
+					lastName: '',
+				},
 				email: '',
 				password: ''
 			},
@@ -89,7 +88,7 @@ export default {
 	},
 	computed: {
 		fullName() {
-			return this.userData.firstName + ' ' + this.userData.lastName
+			return this.userData.fullName.firstName + ' ' + this.userData.fullName.lastName
 		}
 	},
 	methods: {
